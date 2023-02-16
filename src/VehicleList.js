@@ -3,9 +3,9 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 class VehicleList extends React.Component {
 
-createList(vehicle) {
+createList(vehicle, i) {
     return (
-        <ListGroup.Item>
+        <ListGroup.Item key={i} action active={this.props.selected === vehicle} onClick={this.props.currentSelection.bind(this, vehicle)}>
             { vehicle.manufacturer } { vehicle.model }
         </ListGroup.Item>
     )
@@ -14,7 +14,7 @@ createList(vehicle) {
     render() {
         return (
             <ListGroup>
-                {this.props.vehicles.map((v) => this.createList(v))}
+                {this.props.vehicles.map((v, i) => this.createList(v, i))}
             </ListGroup>
         )
     }
