@@ -1,5 +1,7 @@
 import React from 'react';
 import { faker } from '@faker-js/faker';
+import Stack from 'react-bootstrap/Stack';
+import VehicleList from './VehicleList';
 
 class App extends React.Component {
 
@@ -30,7 +32,9 @@ selectedCar(vehicle) {
 
   render() {
     return (
-      <>hi</>
+      <Stack gap={3} direction="horizontal" className="p-5 col-md-10 offset-md-1">
+        <VehicleList vehicles={this.state.vehicles}/>
+      </Stack>
     )
   }
 }
